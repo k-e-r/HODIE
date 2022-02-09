@@ -39,11 +39,6 @@ html {
   font-size: 62.5%;
   font-family: MyFont;
 }
-@media only screen and (max-width: 68.75em) {
-  html {
-    font-size: 50%;
-  }
-}
 
 body {
   font-weight: 400;
@@ -138,7 +133,7 @@ h2 {
 .contents .description {
   width: 40%;
   margin: 2rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 .contents .description span {
   display: block;
@@ -150,19 +145,19 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: right;
-  position: relative;
 }
 .contents .items img {
-  position: absolute;
   height: 90%;
 }
 .contents .items .img1__shadow {
-  top: 5rem;
-  right: 5rem;
+  transform: translate(-1.5rem, 0.5rem);
+  z-index: 1;
 }
 .contents .items .img1 {
   top: 4rem;
   right: 6rem;
+  transform: translate(27rem, 0);
+  z-index: 10;
 }
 
 .topbar {

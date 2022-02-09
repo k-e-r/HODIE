@@ -28,7 +28,7 @@
   .description {
     width: 40%;
     margin: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 
     span {
       display: block;
@@ -42,21 +42,21 @@
     display: flex;
     align-items: center;
     justify-content: right;
-    position: relative;
 
     img {
-      position: absolute;
       height: 90%;
     }
 
     .img1__shadow {
-      top: 5rem;
-      right: 5rem;
+      transform: translate(-1.5rem, 0.5rem);
+      z-index: 1;
     }
 
     .img1 {
       top: 4rem;
       right: 6rem;
+      transform: translate(27rem, 0);
+      z-index: 10;
     }
   }
 }
