@@ -6,7 +6,8 @@
   --color-btn-txt: #33272a;
   --color-st: #33272a;
   --color-main: #fffffe;
-  --color-primary: #ff426e;
+  --color-num: #cc0000;
+  --color-primary: #ff8ba7;
   --color-secondary: #ffc6c7;
   --color-tertiary: #c3f0ca;
   --color-grey-light-1: #faf9f9;
@@ -97,7 +98,7 @@ body {
   height: 1.8rem;
   width: 1.8rem;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--color-num);
   color: #fff;
   position: absolute;
   top: 1.5rem;
@@ -105,6 +106,55 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.topbar {
+  background-color: var(--color-grey-dark-2);
+  flex: 0 0 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top-nav {
+  font-size: 1.8rem;
+  list-style: none;
+  margin-top: 3.5rem;
+  display: flex;
+  margin: 0;
+}
+.top-nav__item {
+  position: relative;
+  flex: 1;
+}
+.top-nav__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--color-primary);
+  transform: scaleY(0);
+  transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s, background-color 0.1s;
+}
+.top-nav__item:hover::before, .top-nav__item--active::before {
+  transform: scaleY(1);
+  width: 100%;
+}
+.top-nav__link:link, .top-nav__link:visited {
+  color: var(--color-grey-light-1);
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  padding: 1.5rem 3rem;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
