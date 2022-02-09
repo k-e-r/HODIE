@@ -52,6 +52,10 @@ body {
   min-height: 100vh;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 .header {
   width: 100%;
   font-size: 1.4rem;
@@ -108,6 +112,59 @@ body {
   align-items: center;
 }
 
+.main__hero {
+  width: 100%;
+  height: calc(100vh - 13rem);
+  display: flex;
+  justify-content: center;
+}
+.main__hero img {
+  width: 70%;
+  object-fit: cover;
+  object-position: center top;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--color-bg);
+  filter: grayscale(30%);
+}
+
+.contents {
+  height: 90vh;
+  margin: 4rem;
+  display: flex;
+  border: 2rem solid #ccc;
+  justify-content: space-between;
+}
+.contents .description {
+  width: 40%;
+  margin: 2rem;
+  font-size: 1.8rem;
+}
+.contents .description span {
+  display: block;
+  margin: 4rem 0;
+}
+.contents .items {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  position: relative;
+}
+.contents .items img {
+  position: absolute;
+  height: 90%;
+}
+.contents .items .img1__shadow {
+  top: 5rem;
+  right: 5rem;
+}
+.contents .items .img1 {
+  top: 4rem;
+  right: 6rem;
+}
+
 .topbar {
   background-color: var(--color-grey-dark-2);
   flex: 0 0 18%;
@@ -141,6 +198,9 @@ body {
 .top-nav__item:hover::before, .top-nav__item--active::before {
   transform: scaleY(1);
   width: 100%;
+}
+.top-nav__item:active::before {
+  background-color: var(--color-secondary);
 }
 .top-nav__link:link, .top-nav__link:visited {
   color: var(--color-grey-light-1);

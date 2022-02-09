@@ -1,6 +1,7 @@
 :root {
   // Elements
   --color-bg: #fdf6f2;
+  // --color-bg: #fffffe;
   --color-hl: #33272a;
   --color-pg: #594a4e;
   --color-btn: #ff8ba7;
@@ -72,4 +73,8 @@ body {
   // background-repeat: no-repeat;
 
   min-height: 100vh;
+}
+
+h2 {
+  font-size: 3rem;
 }

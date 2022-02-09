@@ -41,9 +41,9 @@
     width: 100%;
   }
 
-  // &__item:active::before {
-  //   background-color: var(--color-secondary);
-  // }
+  &__item:active::before {
+    background-color: var(--color-secondary);
+  }
 
   &__link:link,
   &__link:visited {

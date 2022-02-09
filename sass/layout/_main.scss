@@ -1,0 +1,62 @@
+.main__hero {
+  width: 100%;
+  height: calc(100vh - 13rem);
+  // border: 2rem solid #ccc;
+  // align-self: stretch;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 70%;
+    object-fit: cover;
+    object-position: center top;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--color-bg);
+    filter: grayscale(30%);
+  }
+}
+
+.contents {
+  height: 90vh;
+  margin: 4rem;
+  display: flex;
+  border: 2rem solid #ccc;
+  // align-items: center;
+  justify-content: space-between;
+
+  .description {
+    width: 40%;
+    margin: 2rem;
+    font-size: 1.8rem;
+
+    span {
+      display: block;
+      margin: 4rem 0;
+    }
+  }
+
+  .items {
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    position: relative;
+
+    img {
+      position: absolute;
+      height: 90%;
+    }
+
+    .img1__shadow {
+      top: 5rem;
+      right: 5rem;
+    }
+
+    .img1 {
+      top: 4rem;
+      right: 6rem;
+    }
+  }
+}
