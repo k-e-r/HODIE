@@ -1,8 +1,6 @@
 .main__hero {
   width: 100%;
   height: calc(100vh - 13rem);
-  // border: 2rem solid #ccc;
-  // align-self: stretch;
   display: flex;
   justify-content: center;
 
@@ -18,45 +16,40 @@
 }
 
 .contents {
-  height: 90vh;
-  margin: 4rem;
+  margin: 2rem;
   display: flex;
-  border: 2rem solid #ccc;
+  // border: 1rem solid #ccc;
   // align-items: center;
   justify-content: space-between;
 
-  .description {
-    width: 40%;
-    margin: 2rem;
-    font-size: 1.5rem;
+  img {
+    width: 100%;
+  }
 
-    span {
-      display: block;
-      margin: 4rem 0;
+  .desc {
+    margin: 1rem;
+
+    & > * {
+      margin-top: 0.5rem;
     }
   }
 
-  .items {
-    height: 100%;
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: right;
+  button {
+    width: 100%;
+    border: none;
+    padding: 0.5rem 0;
+    background-color: var(--color-btn);
+    color: var(--color-grey-light-2);
+    cursor: pointer;
 
-    img {
-      height: 90%;
+    &:hover {
+      background-color: var(--color-secondary);
     }
+  }
 
-    .img1__shadow {
-      transform: translate(-1.5rem, 0.5rem);
-      z-index: 1;
-    }
-
-    .img1 {
-      top: 4rem;
-      right: 6rem;
-      transform: translate(27rem, 0);
-      z-index: 10;
-    }
+  .product {
+    width: 50%;
+    border: 0.25rem solid #aaa;
+    margin: 1rem;
   }
 }

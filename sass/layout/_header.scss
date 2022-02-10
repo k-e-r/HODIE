@@ -2,6 +2,8 @@
   width: 100%;
   font-size: 1.4rem;
   height: 7rem;
+  position: sticky;
+  top: 0;
 
   // font-size: ;
 
@@ -11,7 +13,9 @@
 
   padding: 0 2rem;
 
-  border-bottom: 0.2rem solid var(--color-grey-light-4);
+  border-bottom: 0.1rem solid var(--color-grey-light-4);
+  background-color: var(--color-bg);
+  z-index: 30;
 }
 
 //////////////////////////////

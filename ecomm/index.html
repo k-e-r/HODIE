@@ -17,14 +17,13 @@
       </div>
       <div class="user-nav__icon-box">
         <svg class="user-nav__icon">
-          <use xlink:href="../img/sprite.svg#icon-mail"></use>
+          <use href="../img/sprite.svg#icon-mail"></use>
         </svg>
       </div>
-      <div class="user-nav__icon-box">
+      <div class="user-nav__icon-box" id="cart">
         <svg class="user-nav__icon">
-          <use xlink:href="../img/sprite.svg#icon-shopping-cart"></use>
+          <use href="../img/sprite.svg#icon-shopping-cart"></use>
         </svg>
-        <span class="user-nav__value">13</span>
       </div>
     </nav>
   </header>
@@ -54,16 +53,57 @@
   <main class="main__hero">
     <img src="../img/hero.jpg" alt="hero image">
   </main>
-  <div class="contents">
-    <section class="description">
-      <h2>Item Details</h2>
-      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, perspiciatis tempora expedita illo possimus voluptate mollitia totam natus eligendi sapiente. Minus accusantium, praesentium facere placeat ex et necessitatibus ipsam non.</span>
-    </section>
-    <section class="items">
-      <img src="../img/model1-2.png" alt="model image" class="img1">
-      <img src="../img/model1_shadow.png" alt="model image" class="img1__shadow">
-    </section>
-  </div>
+  <section class="contents" id="contents">
+    <!-- <div class="product">
+      <img src="../img/test1.jpg" alt="test1">
+      <div class="desc">
+        <span>zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ</span>
+        <h3>¥3,990</h3>
+      </div>
+      <button>ADD CART</button>
+    </div>
+    <div class="product">
+      <img src="../img/test2.jpg" alt="test2">
+      <div class="desc">
+        <span>zootie（ズーティー）：ヘビーウェイト チノ ストレートパンツ</span>
+        <h3>¥3,990</h3>
+      </div>
+      <button id="addBtn">ADD CART</button>
+    </div> -->
+  </section>
   <footer></footer>
+
+  <div class="popup" id="popup">
+    <div class="popup__content">
+      <a href="#dummy" class="popup__close">&times;</a>
+      <h3 class="popup__title">Shopping Cart</h3>
+      <div class="popup__def" id="popupDef">
+        <span>There are currently no products in your cart.</span>
+        <span>Please select a product.</span>
+      </div>
+      <!-- <a href="#" class="btn btn--green">Check Out</a> -->
+      <div class="popup__table" id="popupContent"></div>
+    </div>
+  </div>
+  <script src="./scrypt.js"></script>
 </body>
 </html>
+
+
+
+<!-- <div class="popup" id="popup">
+  <div class="popup__content">
+    <div class="popup__left">
+      <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+      <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+    </div>
+    <div class="popup__right">
+      <a href="#section-tours" class="popup__close">&times;</a>
+      <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+      <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+      <p class="popup__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ut, suscipit assumenda voluptates in consequatur dicta minus enim eveniet quibusdam sapiente voluptas blanditiis voluptatum? Dignissimos aliquid rem amet libero optio?
+      Rerum officia ducimus vel quas voluptatem tempora voluptate corrupti magni, fuga iste nesciunt, necessitatibus dignissimos pariatur ad ratione magnam eum quae, maiores enim! Saepe suscipit repellat deleniti iste excepturi repellendus?</p>
+      <a href="#" class="btn btn--green">Book now</a>
+    </div>
+  </div>
+</div> -->

@@ -2,7 +2,7 @@
   --color-bg: #fdf6f2;
   --color-hl: #33272a;
   --color-pg: #594a4e;
-  --color-btn: #ff8ba7;
+  --color-btn: #eb6a88;
   --color-btn-txt: #33272a;
   --color-st: #33272a;
   --color-main: #fffffe;
@@ -51,15 +51,148 @@ h2 {
   font-size: 3rem;
 }
 
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 3rem 5rem;
+}
+@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+  .popup {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+.popup__def {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-grey-light-4);
+}
+.popup .hide {
+  display: none;
+}
+.popup__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+  background-color: var(--color-grey-light-1);
+  display: table;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.25);
+  transition: all 0.5s 0.2s;
+}
+.popup__title {
+  font-size: 2rem;
+  margin: 2rem 0 0 2rem;
+}
+.popup__item-box {
+  display: flex;
+  margin: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.popup__item-box img {
+  width: 20%;
+}
+.popup__item-box input[type=checkbox] {
+  cursor: pointer;
+}
+.popup__item-box > * {
+  margin-right: 2rem;
+}
+.popup__item-box > *:last-child {
+  margin-right: 0;
+}
+.popup__item-box button {
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--color-grey-light-3);
+  cursor: pointer;
+}
+.popup__item-box button:hover {
+  background-color: var(--color-grey-light-4);
+}
+.popup__item-box button:active {
+  background-color: var(--color-grey-light-3);
+}
+.popup__total-div {
+  display: flex;
+  margin: 2rem;
+  align-items: center;
+  justify-content: right;
+  font-size: 1.8rem;
+}
+.popup__total-div input[type=checkbox] {
+  cursor: pointer;
+}
+.popup__total-div > * {
+  margin-right: 2rem;
+}
+.popup__total-div > *:last-child {
+  margin-right: 0;
+}
+.popup__total-div button {
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--color-grey-light-3);
+  cursor: pointer;
+}
+.popup__total-div button:hover {
+  background-color: var(--color-grey-light-4);
+}
+.popup__total-div button:active {
+  background-color: var(--color-grey-light-3);
+}
+.popup:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popup:target .popup__content {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.popup__close:link, .popup__close:visited {
+  color: var(--color-grey-dark-1);
+  position: absolute;
+  right: 1rem;
+  font-size: 3rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+  line-height: 1;
+}
+.popup__close:hover {
+  color: var(--color-secondary);
+}
+
 .header {
   width: 100%;
   font-size: 1.4rem;
   height: 7rem;
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  border-bottom: 0.2rem solid var(--color-grey-light-4);
+  border-bottom: 0.1rem solid var(--color-grey-light-4);
+  background-color: var(--color-bg);
+  z-index: 30;
 }
 
 .logo {
@@ -124,40 +257,34 @@ h2 {
 }
 
 .contents {
-  height: 90vh;
-  margin: 4rem;
+  margin: 2rem;
   display: flex;
-  border: 2rem solid #ccc;
   justify-content: space-between;
 }
-.contents .description {
-  width: 40%;
-  margin: 2rem;
-  font-size: 1.5rem;
+.contents img {
+  width: 100%;
 }
-.contents .description span {
-  display: block;
-  margin: 4rem 0;
+.contents .desc {
+  margin: 1rem;
 }
-.contents .items {
-  height: 100%;
-  width: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: right;
+.contents .desc > * {
+  margin-top: 0.5rem;
 }
-.contents .items img {
-  height: 90%;
+.contents button {
+  width: 100%;
+  border: none;
+  padding: 0.5rem 0;
+  background-color: var(--color-btn);
+  color: var(--color-grey-light-2);
+  cursor: pointer;
 }
-.contents .items .img1__shadow {
-  transform: translate(-1.5rem, 0.5rem);
-  z-index: 1;
+.contents button:hover {
+  background-color: var(--color-secondary);
 }
-.contents .items .img1 {
-  top: 4rem;
-  right: 6rem;
-  transform: translate(27rem, 0);
-  z-index: 10;
+.contents .product {
+  width: 50%;
+  border: 0.25rem solid #aaa;
+  margin: 1rem;
 }
 
 .topbar {
