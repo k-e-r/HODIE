@@ -3,16 +3,28 @@ const cart = document.querySelector('#cart');
 
 const products = [
   {
-    img: '../img/test1.jpg',
+    img: '../img/bottom1.jpg',
     name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
     price: '39.9',
     id: 1,
   },
   {
-    img: '../img/test2.jpg',
+    img: '../img/bottom2.jpg',
     name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
     price: '39.9',
     id: 2,
+  },
+  {
+    img: '../img/bottom3.jpg',
+    name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
+    price: '39.9',
+    id: 3,
+  },
+  {
+    img: '../img/bottom4.jpg',
+    name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
+    price: '39.9',
+    id: 4,
   },
 ];
 

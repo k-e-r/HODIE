@@ -257,34 +257,39 @@ h2 {
 }
 
 .contents {
-  margin: 2rem;
-  display: flex;
-  justify-content: space-between;
-}
-.contents img {
-  width: 100%;
+  margin: 5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 1rem;
 }
 .contents .desc {
-  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--color-main);
 }
 .contents .desc > * {
   margin-top: 0.5rem;
 }
-.contents button {
+.contents .product {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.contents .product img {
+  width: 100%;
+  grid-row: 1/2;
+  grid-column: 1/-1;
+  z-index: 1;
+}
+.contents .product button {
+  grid-column: 1/-1;
   width: 100%;
   border: none;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   background-color: var(--color-btn);
   color: var(--color-grey-light-2);
   cursor: pointer;
 }
-.contents button:hover {
+.contents .product button:hover {
   background-color: var(--color-secondary);
-}
-.contents .product {
-  width: 50%;
-  border: 0.25rem solid #aaa;
-  margin: 1rem;
 }
 
 .topbar {
