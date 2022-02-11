@@ -1,33 +1,6 @@
 const contents = document.querySelector('#contents');
 const cart = document.querySelector('#cart');
 
-const products = [
-  {
-    img: '../img/bottom1.jpg',
-    name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
-    price: '39.9',
-    id: 1,
-  },
-  {
-    img: '../img/bottom2.jpg',
-    name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
-    price: '39.9',
-    id: 2,
-  },
-  {
-    img: '../img/bottom3.jpg',
-    name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
-    price: '39.9',
-    id: 3,
-  },
-  {
-    img: '../img/bottom4.jpg',
-    name: 'zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ',
-    price: '39.9',
-    id: 4,
-  },
-];
-
 const init = () => {
   // products
   for (let val in products) {
@@ -85,7 +58,7 @@ const cartNumOutput = () => {
   for (let val in cartArr) {
     productsVal += cartArr[val].quantity;
   }
-  cartVal.textContent = productsVal;
+  cartVal.textContent = productsVal < 100 ? productsVal : '99+';
   cart.appendChild(cartVal);
 };
 
@@ -96,8 +69,8 @@ cart.addEventListener('click', () => {
 });
 
 const cartOutput = () => {
-  console.log('cart click');
   const popup = document.querySelector('#popupContent');
+  const popupPrice = document.querySelector('#popupPrice');
   const popupDef = document.querySelector('#popupDef');
   popup.innerHTML = '';
   // refer to cart
@@ -132,27 +105,35 @@ const cartOutput = () => {
       productData.appendChild(price);
       itemBox.appendChild(productData);
 
-      // const value = document.createElement('span');
-      // value.textContent = cartArr[val].quantity;
-      // itemBox.appendChild(value);
-      let selectList = document.createElement('select');
-      // selectList.id = 'selectList';
-      //Create and append the options
-      for (let i = 0; i < 11; i++) {
-        let option = document.createElement('option');
-        option.value = i;
-        if (i === 10) option.text = '10+';
-        else option.text = i;
-        if (i === cartArr[val].quantity) option.selected = true;
-        selectList.appendChild(option);
+      if (cartArr[val].quantity < 10) {
+        let selectList = document.createElement('select');
+        for (let i = 0; i < 11; i++) {
+          let option = document.createElement('option');
+          option.value = i;
+          if (i === 10) option.text = '10+';
+          else option.text = i;
+          if (i === cartArr[val].quantity) option.selected = true;
+          selectList.appendChild(option);
+        }
+        itemBox.appendChild(selectList);
+        selectList.addEventListener('change', (e) => {
+          cartArr[val].quantity = parseInt(e.currentTarget.value, 10);
+          cartOutput();
+          cartNumOutput();
+        });
+      } else {
+        const itemVal = document.createElement('input');
+        itemVal.setAttribute('type', 'tel');
+        itemVal.setAttribute('max-length', '4');
+        itemVal.value = cartArr[val].quantity;
+        itemVal.classList.add('popup__input-value');
+        itemVal.addEventListener('focusout', function () {
+          cartArr[val].quantity = parseInt(itemVal.value, 10);
+          cartOutput();
+          cartNumOutput();
+        });
+        itemBox.appendChild(itemVal);
       }
-      itemBox.appendChild(selectList);
-      selectList.addEventListener('change', (e) => {
-        console.log('change', parseInt(e.currentTarget.value, 10));
-        cartArr[val].quantity = parseInt(e.currentTarget.value, 10);
-        cartOutput();
-        cartNumOutput();
-      });
 
       const prices = document.createElement('h3');
       let calcPrice =
@@ -171,8 +152,9 @@ const cartOutput = () => {
       itemBox.appendChild(deleteBtn);
       popup.appendChild(itemBox);
     }
-    console.log(totalPrice);
-    console.log(Math.round(totalPrice * 100) / 100);
+    popupPrice.innerHTML = '';
+    // console.log(totalPrice);
+    // console.log(Math.round(totalPrice * 100) / 100);
     const totalDiv = document.createElement('div');
     totalDiv.classList.add('popup__total-div');
     const totalTxt = document.createElement('span');
@@ -190,7 +172,8 @@ const cartOutput = () => {
       cartNumOutput();
     });
     totalDiv.appendChild(deleteBtn);
-    popup.appendChild(totalDiv);
+    popupPrice.appendChild(totalDiv);
+    console.log(totalDiv);
   }
 };
 

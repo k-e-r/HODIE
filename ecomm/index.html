@@ -9,7 +9,16 @@
 </head>
 <body>
   <header class="header">
-    <img src="https://placehold.jp/190x35.png" alt="hodie logo" class="logo">
+    <img src="../img/Logo.png" alt="hodie logo" class="logo">
+
+    <form action="#" class="search">
+      <input type="text" class="search__input" placeholder="Search...">
+      <button class="search__button">
+        <svg class="search__icon">
+          <use xlink:href="../img/sprite.svg#icon-magnifying-glass"></use>
+        </svg>
+      </button>
+    </form>
 
     <nav class="user-nav">
       <div class="user-nav__user">
@@ -51,27 +60,11 @@
   </nav>
 
   <main class="main__hero">
-    <img src="../img/hero.jpg" alt="hero image">
+    <img src="../img/hero3.jpg" alt="hero image">
   </main>
   <section class="contents" id="contents">
-    <!-- <div class="product">
-      <img src="../img/test1.jpg" alt="test1">
-      <div class="desc">
-        <span>zootie（ズーティー）：ヘビーウェイト デニム ルーズテーパードパンツ</span>
-        <h3>¥3,990</h3>
-      </div>
-      <button>ADD CART</button>
-    </div>
-    <div class="product">
-      <img src="../img/test2.jpg" alt="test2">
-      <div class="desc">
-        <span>zootie（ズーティー）：ヘビーウェイト チノ ストレートパンツ</span>
-        <h3>¥3,990</h3>
-      </div>
-      <button id="addBtn">ADD CART</button>
-    </div> -->
   </section>
-  <footer></footer>
+  <footer>&copy; 2021 Kaori Era</footer>
 
   <div class="popup" id="popup">
     <div class="popup__content">
@@ -83,27 +76,10 @@
       </div>
       <!-- <a href="#" class="btn btn--green">Check Out</a> -->
       <div class="popup__table" id="popupContent"></div>
+      <div class="popup__price" id="popupPrice"></div>
     </div>
   </div>
+  <script src="./products.js"></script>
   <script src="./scrypt.js"></script>
 </body>
 </html>
-
-
-
-<!-- <div class="popup" id="popup">
-  <div class="popup__content">
-    <div class="popup__left">
-      <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
-      <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
-    </div>
-    <div class="popup__right">
-      <a href="#section-tours" class="popup__close">&times;</a>
-      <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
-      <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
-      <p class="popup__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ut, suscipit assumenda voluptates in consequatur dicta minus enim eveniet quibusdam sapiente voluptas blanditiis voluptatum? Dignissimos aliquid rem amet libero optio?
-      Rerum officia ducimus vel quas voluptatem tempora voluptate corrupti magni, fuga iste nesciunt, necessitatibus dignissimos pariatur ad ratione magnam eum quae, maiores enim! Saepe suscipit repellat deleniti iste excepturi repellendus?</p>
-      <a href="#" class="btn btn--green">Book now</a>
-    </div>
-  </div>
-</div> -->

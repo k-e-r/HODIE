@@ -26,6 +26,10 @@
     background-color: var(--color-grey-light-4);
   }
 
+  &__input-value {
+    width: 4rem;
+  }
+
   .hide {
     display: none;
   }
@@ -123,6 +127,11 @@
         // color: var(--color-grey-light-3);
       }
     }
+  }
+
+  &__table {
+    overflow: scroll;
+    max-height: 44rem;
   }
 
   display: table-cell;
