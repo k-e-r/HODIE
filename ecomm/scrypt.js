@@ -19,7 +19,7 @@ const init = () => {
     desc.appendChild(name);
 
     const price = document.createElement('h3');
-    price.textContent = '$' + products[val].price;
+    price.textContent = '$' + commaSep(products[val].price);
     desc.appendChild(price);
     product.appendChild(desc);
 
@@ -27,6 +27,7 @@ const init = () => {
     addBtn.textContent = 'ADD CART';
     addBtn.addEventListener('click', () => {
       addBtnClickEvent(products[val].id);
+      callToast();
     });
     product.appendChild(addBtn);
 
@@ -48,12 +49,10 @@ const addBtnClickEvent = (itemId) => {
       cartArr.push({ id: itemId, quantity: 1 });
     }
   }
-  // console.log(cartArr);
   cartNumOutput();
 };
 
 const cartNumOutput = () => {
-  // cart num
   let productsVal = 0;
   for (let val in cartArr) {
     productsVal += cartArr[val].quantity;
@@ -73,6 +72,8 @@ const cartOutput = () => {
   const popupPrice = document.querySelector('#popupPrice');
   const popupDef = document.querySelector('#popupDef');
   popup.innerHTML = '';
+  popupPrice.innerHTML = '';
+
   // refer to cart
   if (cartArr.length === 0) {
     // nothing
@@ -86,12 +87,6 @@ const cartOutput = () => {
       const itemBox = document.createElement('div');
       itemBox.classList.add('popup__item-box');
 
-      const checkBox = document.createElement('input');
-      checkBox.setAttribute('type', 'checkbox');
-      checkBox.setAttribute('name', 'check');
-      checkBox.setAttribute('checked', 'checked');
-      itemBox.appendChild(checkBox);
-
       const img = document.createElement('img');
       img.src = exProduct.img;
       itemBox.appendChild(img);
@@ -101,7 +96,7 @@ const cartOutput = () => {
       name.textContent = exProduct.name;
       productData.appendChild(name);
       const price = document.createElement('h3');
-      price.textContent = '$' + exProduct.price;
+      price.textContent = '$' + commaSep(exProduct.price);
       productData.appendChild(price);
       itemBox.appendChild(productData);
 
@@ -124,10 +119,10 @@ const cartOutput = () => {
       } else {
         const itemVal = document.createElement('input');
         itemVal.setAttribute('type', 'tel');
-        itemVal.setAttribute('max-length', '4');
+        itemVal.setAttribute('maxlength', '3');
         itemVal.value = cartArr[val].quantity;
         itemVal.classList.add('popup__input-value');
-        itemVal.addEventListener('focusout', function () {
+        itemVal.addEventListener('focusout', () => {
           cartArr[val].quantity = parseInt(itemVal.value, 10);
           cartOutput();
           cartNumOutput();
@@ -138,13 +133,13 @@ const cartOutput = () => {
       const prices = document.createElement('h3');
       let calcPrice =
         Math.round(exProduct.price * 100 * cartArr[val].quantity) / 100;
-      prices.textContent = '$' + calcPrice;
+      prices.textContent = '$' + commaSep(calcPrice);
       itemBox.appendChild(prices);
       totalPrice += calcPrice;
 
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = 'delete';
-      deleteBtn.addEventListener('click', function () {
+      deleteBtn.addEventListener('click', () => {
         cartArr = cartArr.filter((item) => item.id !== cartArr[val].id);
         cartOutput();
         cartNumOutput();
@@ -152,16 +147,14 @@ const cartOutput = () => {
       itemBox.appendChild(deleteBtn);
       popup.appendChild(itemBox);
     }
-    popupPrice.innerHTML = '';
-    // console.log(totalPrice);
-    // console.log(Math.round(totalPrice * 100) / 100);
+
     const totalDiv = document.createElement('div');
     totalDiv.classList.add('popup__total-div');
     const totalTxt = document.createElement('span');
     totalTxt.textContent = 'Total';
     totalDiv.appendChild(totalTxt);
     const total = document.createElement('span');
-    total.textContent = '$' + Math.round(totalPrice * 100) / 100;
+    total.textContent = '$' + commaSep(Math.round(totalPrice * 100) / 100);
     totalDiv.appendChild(total);
 
     const deleteBtn = document.createElement('button');
@@ -173,11 +166,31 @@ const cartOutput = () => {
     });
     totalDiv.appendChild(deleteBtn);
     popupPrice.appendChild(totalDiv);
-    console.log(totalDiv);
   }
 };
 
-// cart value
+const commaSep = (price) => {
+  let s = String(price).split('.');
+  let ret = String(s[0]).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+  if (s.length > 1) {
+    ret += '.' + s[1];
+  }
+  return ret;
+};
+
+const callToast = () => {
+  // Get the snackbar DIV
+  let x = document.getElementById('snackbar');
+
+  // Add the "show" class to DIV
+  x.className = 'show';
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(() => {
+    x.className = x.className.replace('show', '');
+  }, 3000);
+};
+
 const cartVal = document.createElement('span');
 cartVal.classList.add('user-nav__value');
 init();

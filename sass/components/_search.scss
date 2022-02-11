@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
 
-  @media only screen and (max-width: 31.25em) {
+  @media only screen and (max-width: 33em) {
     order: 1;
     flex: 0 0 100%;
     background-color: var(--color-grey-light-2);
@@ -20,14 +20,14 @@
     background-color: var(--color-grey-light-2);
     border: none;
     padding: 0.7rem 2rem;
-    border-radius: 100px;
+    // border-radius: 100px;
     width: 90%;
     transition: all 0.2s;
-    margin-right: -3.5rem;
+    margin-right: -2.8rem;
 
     &:focus {
       outline: none;
-      width: 100%;
+      width: 110%;
       background-color: var(--color-grey-light-3);
     }
 
